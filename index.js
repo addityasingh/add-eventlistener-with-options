@@ -2,7 +2,7 @@ import {
     isPassiveSupported,
     isCaptureSupported,
     isOnceSupported
-} from './checkPassiveSupport';
+} from './src/checkPassiveSupport';
 
 
 export default function addEventListenerWithOptions (target, eventName, listener, options) {
