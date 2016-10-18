@@ -4,7 +4,8 @@
   "description": "A utility function to check if EventTarget.addEventListener supports adding passive events",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "node test",
+    "build": "webpack --progress"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,9 @@
   },
   "homepage": "https://github.com/addi90/add-eventlistener-passive#readme",
   "dependencies": {
-    "babel": "^6.5.2"
+    "babel": "^6.5.2",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "webpack": "^1.13.2"
   }
 }
