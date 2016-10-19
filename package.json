@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test",
-    "build": "rm -fr lib/ && webpack",
-    "compile": "babel -d lib/ src/",
+    "build": "rm -fr index.js && webpack",
     "prepublish": "npm run build"
   },
   "repository": {
