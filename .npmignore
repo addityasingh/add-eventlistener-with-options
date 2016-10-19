@@ -1,0 +1,10 @@
+# Ignore folders
+src/
+test/
+node_modules/
+
+# Ignore build and environment specific files
+yarn.lock
+webpack.config.js
+.gitignore
+.babelrc
