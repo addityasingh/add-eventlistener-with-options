@@ -1,5 +1,5 @@
 {
-  "name": "add-eventlistener-passive",
+  "name": "add-eventlistener-with-options",
   "version": "1.0.0",
   "description": "A utility function to check if EventTarget.addEventListener supports adding passive events",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/addi90/add-eventlistener-passive.git"
+    "url": "git+https://github.com/addi90/add-eventlistener-with-options.git"
   },
   "keywords": [
     "event",
@@ -18,10 +18,12 @@
   "author": "Aditya Pratap Singh adisinghrajput@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/addi90/add-eventlistener-passive/issues"
+    "url": "https://github.com/addi90/add-eventlistener-with-options/issues"
   },
-  "homepage": "https://github.com/addi90/add-eventlistener-passive#readme",
+  "homepage": "https://github.com/addi90/add-eventlistener-with-options#readme",
   "dependencies": {
+  },
+  "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
