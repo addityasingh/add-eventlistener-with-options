@@ -16,7 +16,7 @@
     "event",
     "passive"
   ],
-  "author": "Aditya Pratap Singh adisinghrajput@gmail.com",
+  "author": "Aditya Pratap Singh <adisinghrajput@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/addi90/add-eventlistener-with-options/issues"
