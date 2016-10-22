@@ -1,9 +1,12 @@
 import { expect } from 'chai';
-
-import { isPassiveSupported } from '../src/checkSupport';
+import jsdom from 'mocha-jsdom';
+import { isPassiveSupported } from '../dist/checkSupport';
 
 describe('Passive', () => {
-    it('should be available and true in new browsers', () => {
-        expect(isPassiveSupported()).to.equal(true);
+    jsdom();
+
+    it('should be available and false in old browsers', (done) => {
+        expect(isPassiveSupported()).to.equal(false);
+        done()
     });
 });
