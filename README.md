@@ -22,11 +22,13 @@ call `preventDefault()`, so browsers often block scrolling unneccesarily. For in
 Now that we have an extensible syntax for specifying options at event handler registration time, we can add a new `passive` option which declares up-front that the listener will never call `preventDefault()` on the event.  If it does, the user agent will just ignore the request (ideally generating at least a console warning). Eg:
 
 ```javascript
+  var supportsPassive; // The logic to check if passive option is supported in this browser;
+
   addEventListener(document, "touchstart", function(e) {
     console.log(e.defaultPrevented);  // will be false
     e.preventDefault();   // does nothing since the listener is passive
     console.log(e.defaultPrevented);  // still false
-  }, {passive: true} : false);
+  }, supportsPassive ? {passive: true} : false);
 ```
 
 Now rather than having to block scrolling whenever there are any touch or wheel listener, the browser only needs to do this when there are *non-passive* listeners (see [TouchEvents spec](http://w3c.github.io/touch-events/#cancelability)).  `passive` listeners are free of performance side-effects.
