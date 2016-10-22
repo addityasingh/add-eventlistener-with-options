@@ -46,6 +46,13 @@ addEventListenerWithOptions(window, 'touchstart', () => {
 });
 ```
 
+- The default option is `passive`, but you can even add `capture` or `once` options by passing them as the last option
+
+```javascript
+addEventListenerWithOptions(window, 'touchstart', () => {
+    // Do stuff
+}, {}, 'capture');
+```
 
 There is a video showing the comparison on [CNN website](https://www.cnn.com) here
 
