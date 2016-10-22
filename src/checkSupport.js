@@ -4,22 +4,36 @@ import {
     ONCE
 } from './constants';
 
+const OptionsMap = {
+    [PASSIVE]:  false,
+    [CAPTURE]:  false,
+    [ONCE]:     false  
+}
 
-export const isPassiveSupported = () => checkSupportForProperty(PASSIVE)
-export const isOnceSupported    = () => checkSupportForProperty(ONCE)
-export const isCaptureSupported = () => checkSupportForProperty(CAPTURE)
+const getOptionsMap = () => {
+    Object.keys(OptionsMap).forEach((k, i) => {
+        OptionsMap[k] = checkSupportForProperty(k);
+    });
+
+    return OptionsMap; 
+};
 
 function checkSupportForProperty (property) {
-    let supports = false;
+    if (!!OptionsMap[property]) {
+        return OptionsMap[property];
+    }
+
     try {
         const opts = Object.defineProperty({}, property, {
             get: function() {
-                supports = true;
+                OptionsMap[property] = true;
             }
         });
         window.addEventListener("test", null, opts);
         window.removeListener("test", null);
     } catch (e) {}
 
-    return supports;
+    return OptionsMap[property];
 }
+
+export const SupportMap = getOptionsMap();

@@ -1,17 +1,26 @@
 import {
-    isPassiveSupported,
-    isCaptureSupported,
-    isOnceSupported
+    SupportMap
 } from './checkSupport';
 
 
-export default function addEventListenerWithOptions (target, eventName, listener, options) {
+/**
+ * Add event listener with additional options
+ * @param {EventTarget} target - The EventTarget element
+ * @param {string} name - The name of the event
+ * @param {function} listener - The event listener callback
+ * @param {object} options - The options explicitly passed from caller
+ * @param {string} optionName - The additioanl option to add to the event listener 
+ */
+export default function addEventListenerWithOptions (
+    target, 
+    name, 
+    listener, 
+    options,
+    optionName = 'passive') {
     if (target.addEventListener !== undefined) {
-        const listenerOption =  isPassiveSupported() ? { passive: true } : false;
-        target.addEventListener(eventName, listener, listenerOption, options);
+        const listenerOptions = SupportMap[optionName] 
+                ? Object.assign({}, { [optionName]: true }, options) 
+                : false;
+        target.addEventListener(name, listener, listenerOptions);
     }
-}
-
-function sanitizeOptions (options) {
-    // Filter out all the options which are nit present and apply pnly thise which are supported
 }
