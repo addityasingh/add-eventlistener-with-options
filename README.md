@@ -68,11 +68,32 @@ addEventListenerWithOptions(window, 'touchstart', () => {
 }, {}, 'capture');
 ```
 
-There is a video showing the comparison on [CNN website](https://www.cnn.com) here
+# Performance test
+There is a video showing the comparison of performance on [CNN website](https://www.cnn.com) here
 
 <a href="https://www.youtube.com/watch?v=NPM6172J22g">
 ![demo video](https://cloud.githubusercontent.com/assets/39191/16223871/cab9f508-379f-11e6-8154-1d0a005ad071.png)
 </a>
 
+Additionally, I tested the change with below code and the Devtools Timline data ***before*** and ***after*** the change are shown below for a sample **Redux** application
+
+```javascript
+addEventListenerWithOptions(window, 'touchstart', (e) => {
+  console.log('e.defaultPrevented', e.defaultPrevented);  // will be false 
+  for (let i =0; i< 100; i++) {
+    console.log(`i ${i}`);
+    e.preventDefault(); // does nothing since the listener is passive 
+  }
+
+  console.log('e.defaultPrevented', e.defaultPrevented);  // still false 
+});
+```
+![Before Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/before-passive.png)
+
+
+![After Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/after-passive.png)
+
+
 # Reference and Credits
-Most of the story behind implementing this comes from the [Web Platform Incubator Community Group](https://www.w3.org/blog/2015/07/wicg/) suggestion on [EventListenerOptions](https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md)
+Most of the sources for implementing this comes from the [Web Platform Incubator Community Group](https://www.w3.org/blog/2015/07/wicg/) suggestion on [EventListenerOptions](https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md)
+
