@@ -6,7 +6,7 @@ A utility function to check if [EventTarget.addEventListener](https://developer.
 
 # Story behind Passive event listeners 
 
-Passive event listeners are a new feature [in the DOM spec](https://dom.spec.whatwg.org/#dom-eventlisteneroptions-passive) that enable developers to opt-in to better scroll performance by eliminating the need for scrolling to block on touch and wheel event listeners.  Developers can annotate touch and wheel listeners with `{passive: true}` to indicate that they will never invoke `preventDefault`.  This feature [shipped in Chrome 51](https://www.chromestatus.com/features/5745543795965952), [Firefox 49](https://bugzilla.mozilla.org/show_bug.cgi?id=1266066) and [landed in WebKit](https://bugs.webkit.org/show_bug.cgi?id=158601). Check out the video below for a side-by-side of passive event listeners in action:
+Passive event listeners are a new feature [in the DOM spec](https://dom.spec.whatwg.org/#dom-eventlisteneroptions-passive) that enable developers to opt-in to better scroll performance by eliminating the need for scrolling to block on touch and wheel event listeners.  Developers can annotate touch and wheel listeners with `{passive: true}` to indicate that they will never invoke `preventDefault`.  This feature [shipped in Chrome 51](https://www.chromestatus.com/features/5745543795965952), [Firefox 49](https://bugzilla.mozilla.org/show_bug.cgi?id=1266066) and [landed in WebKit](https://bugs.webkit.org/show_bug.cgi?id=158601). 
 
 
 ### The problem
@@ -19,38 +19,52 @@ call `preventDefault()`, so browsers often block scrolling unneccesarily. For in
 
 ### Solution: the 'passive' option
 
-Now that we have an extensible syntax for specifying options at event handler registration time, we can add a new `passive` option which declares up-front that the listener will never call `preventDefault()` on the event.  If it does, the user agent will just ignore the request (ideally generating at least a console warning). Eg:
-
-```javascript
-  var supportsPassive; // The logic to check if passive option is supported in this browser;
-
-  addEventListener(document, "touchstart", function(e) {
-    console.log(e.defaultPrevented);  // will be false
-    e.preventDefault();   // does nothing since the listener is passive
-    console.log(e.defaultPrevented);  // still false
-  }, supportsPassive ? {passive: true} : false);
-```
+Now that we have an extensible syntax for specifying options at event handler registration time, we can add a new `passive` option which declares up-front that the listener will never call `preventDefault()` on the event.  If it does, the user agent will just ignore the request (ideally generating at least a console warning). 
 
 Now rather than having to block scrolling whenever there are any touch or wheel listener, the browser only needs to do this when there are *non-passive* listeners (see [TouchEvents spec](http://w3c.github.io/touch-events/#cancelability)).  `passive` listeners are free of performance side-effects.
 
-# Reason
-This package provides a smooth fallback implementation to use the `{ passive: true }` option in newer browsers, while falling back to `false` in older ones
+This package provides a smooth fallback implementation to use the `{ passive: true }` option in newer browsers, while falling back to `false` value in older ones. 
+Additionally, you could also use the method to use the `capture` and `once` options.
 
-# Usage
-
-- To add passive event listeners
-
+# Syntax
 ```javascript
+addEventListenerWithOptions(target, 
+  eventName, 
+  listener, 
+  options, 
+  optionName);
+```
+
+ - `target`: The [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) element to use as the target of the event
+ - `eventName`: Name of the event to be handled using the event listener. E.g. `touchstart`, `touchend`
+ - `listener`: The event listener callback to be called on the event
+ - `options`: Additional options
+ - `optionName`: Defaults to `passive`. Use [`once`, `capture`] to override.
+
+# Installation
+Use it with `npm` as
+
+```
+npm install add-event-listener-with-options
+```
+
+# Example
+- To add the `passive` event listeners as default
+
+## ES6 syntax
+```javascript
+import addEventListenerWithOptions from 'add-eventlistener-with-options';
+
 addEventListenerWithOptions(window, 'touchstart', () => {
-    // Do stuff
+    // Execute callback code
 });
 ```
 
-- The default option is `passive`, but you can even add `capture` or `once` options by passing them as the last option
+- The default option is `passive`, but you can even add `capture` or `once` options by passing them as the last parameter
 
 ```javascript
 addEventListenerWithOptions(window, 'touchstart', () => {
-    // Do stuff
+    // Execute callback code
 }, {}, 'capture');
 ```
 
