@@ -2,6 +2,8 @@
 src/
 test/
 node_modules/
+dist/
+assets/
 
 # Ignore build and environment specific files
 yarn.lock
