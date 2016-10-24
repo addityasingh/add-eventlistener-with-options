@@ -75,7 +75,7 @@ There is a video showing the comparison of performance on [CNN website](https://
 ![demo video](https://cloud.githubusercontent.com/assets/39191/16223871/cab9f508-379f-11e6-8154-1d0a005ad071.png)
 </a>
 
-Additionally, I tested the change with below code and the Devtools Timline data ***before*** and ***after*** the change are shown below for a sample **Redux** application
+Additionally, I tested the change with below code and the Devtools Timline data ***before*** and ***after*** the change are shown below for a sample **Redux** application. The number of frames in green (< 16ms) is increased after adding the `passive` option as compared below:
 
 ```javascript
 addEventListenerWithOptions(window, 'touchstart', (e) => {
