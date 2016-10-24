@@ -1,6 +1,6 @@
 {
   "name": "add-eventlistener-with-options",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "description": "A utility function to check if EventTarget.addEventListener supports adding passive events",
   "main": "index.js",
   "scripts": {
