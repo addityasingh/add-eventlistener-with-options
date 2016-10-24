@@ -88,9 +88,11 @@ addEventListenerWithOptions(window, 'touchstart', (e) => {
   console.log('e.defaultPrevented', e.defaultPrevented);  // still false 
 });
 ```
+### Before
+
 ![Before Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/before-passive.png)
 
-
+### After
 ![After Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/after-passive.png)
 
 
