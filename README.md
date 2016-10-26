@@ -1,6 +1,8 @@
 # add-eventlistener-with-options
 A utility function to check if [EventTarget.addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) supports adding `passive` (or `capture`, `once`) event options.
 
+[![NPM](https://nodei.co/npm/add-eventlistener-with-options.png)](https://npmjs.org/package/add-eventlistener-with-options)
+
 ## Build status
 [![Build Status](https://travis-ci.org/addi90/add-eventlistener-with-options.svg?branch=master)](https://travis-ci.org/addi90/add-eventlistener-with-options)
 
