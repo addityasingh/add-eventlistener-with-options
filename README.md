@@ -1,6 +1,8 @@
 # add-eventlistener-with-options
 A utility function to check if [EventTarget.addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) supports adding `passive` (or `capture`, `once`) event options.
 
+[![NPM](https://nodei.co/npm/add-eventlistener-with-options.png)](https://npmjs.org/package/add-eventlistener-with-options)
+
 ## Build status
 [![Build Status](https://travis-ci.org/addi90/add-eventlistener-with-options.svg?branch=master)](https://travis-ci.org/addi90/add-eventlistener-with-options)
 
@@ -77,6 +79,25 @@ There is a video showing the comparison of performance on [CNN website](https://
 
 Additionally, I tested the change with below code and the Devtools Timline data ***before*** and ***after*** the change are shown below for a sample **Redux** application. The number of frames in green (< 16ms) is increased after adding the `passive` option as compared below:
 
+### Before
+
+
+```javascript
+window.addEventListener('touchstart', (e) => {
+  console.log('e.defaultPrevented', e.defaultPrevented);  // will be false 
+  for (let i =0; i< 100; i++) {
+    console.log(`i ${i}`);
+    e.preventDefault(); // prevents the scroll because the event handler is not passive 
+  }
+
+  console.log('e.defaultPrevented', e.defaultPrevented);  // true 
+});
+```
+
+![Before Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/before-passive.png)
+
+### After
+
 ```javascript
 addEventListenerWithOptions(window, 'touchstart', (e) => {
   console.log('e.defaultPrevented', e.defaultPrevented);  // will be false 
@@ -88,11 +109,7 @@ addEventListenerWithOptions(window, 'touchstart', (e) => {
   console.log('e.defaultPrevented', e.defaultPrevented);  // still false 
 });
 ```
-### Before
 
-![Before Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/before-passive.png)
-
-### After
 ![After Passive ](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/after-passive.png)
 
 
