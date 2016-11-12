@@ -5,3 +5,5 @@ test_dist
 .DS_Store
 npm-debug.log
 index.js
+
+coverage

@@ -6,6 +6,9 @@ A utility function to check if [EventTarget.addEventListener](https://developer.
 ## Build status
 [![Build Status](https://travis-ci.org/addi90/add-eventlistener-with-options.svg?branch=master)](https://travis-ci.org/addi90/add-eventlistener-with-options)
 
+## Code coverage report using istanbul
+![Code Coverage report](https://raw.githubusercontent.com/addi90/add-eventlistener-with-options/master/assets/code_coverage_20161112.png)
+
 # Story behind Passive event listeners 
 
 Passive event listeners are a new feature [in the DOM spec](https://dom.spec.whatwg.org/#dom-eventlisteneroptions-passive) that enable developers to opt-in to better scroll performance by eliminating the need for scrolling to block on touch and wheel event listeners.  Developers can annotate touch and wheel listeners with `{passive: true}` to indicate that they will never invoke `preventDefault`.  This feature [shipped in Chrome 51](https://www.chromestatus.com/features/5745543795965952), [Firefox 49](https://bugzilla.mozilla.org/show_bug.cgi?id=1266066) and [landed in WebKit](https://bugs.webkit.org/show_bug.cgi?id=158601). 

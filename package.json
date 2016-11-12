@@ -7,7 +7,8 @@
     "test": "npm run pretest && mocha test_dist --recursive",
     "build": "rm -fr index.js && webpack",
     "pretest": "rm -fr test_dist && babel src --out-dir dist && babel test --out-dir test_dist",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "testc": "npm run pretest && istanbul cover ./node_modules/.bin/_mocha test_dist/checkSupportTest.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/addi90/add-eventlistener-with-options#readme",
   "dependencies": {
+    "istanbul": "^0.4.5",
     "mocha": "^3.1.2"
   },
   "devDependencies": {
