@@ -4,12 +4,11 @@
   "description": "A utility function to check if EventTarget.addEventListener supports adding passive events",
   "main": "index.js",
   "scripts": {
-    "test": "npm run pretest && mocha test_dist --recursive",
     "build": "rm -fr index.js && webpack",
     "pretest": "rm -fr test_dist && babel src --out-dir dist && babel test --out-dir test_dist",
     "prepublish": "npm run build",
     "codecov": "cat coverage/*/lcov.info | codecov",
-    "testc": "npm run pretest && istanbul cover ./node_modules/.bin/_mocha test_dist/checkSupportTest.js"
+    "test": "npm run pretest && istanbul cover ./node_modules/.bin/_mocha test_dist/checkSupportTest.js"
   },
   "repository": {
     "type": "git",
