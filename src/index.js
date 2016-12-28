@@ -20,7 +20,7 @@ export default function addEventListenerWithOptions (
     if (target.addEventListener !== undefined) {
         const listenerOptions = SupportMap[optionName] 
                 ? Object.assign({}, { [optionName]: true }, options) 
-                : false;
+                : options;
         target.addEventListener(name, listener, listenerOptions);
     }
 }
