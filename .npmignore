@@ -5,6 +5,7 @@ node_modules/
 dist/
 assets/
 coverage/
+.nyc_output
 
 # Ignore build and environment specific files
 yarn.lock
