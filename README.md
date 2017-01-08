@@ -7,7 +7,7 @@ A utility function to check if [EventTarget.addEventListener](https://developer.
 [![Build Status](https://travis-ci.org/addi90/add-eventlistener-with-options.svg?branch=master)](https://travis-ci.org/addi90/add-eventlistener-with-options)
 
 ## Code coverage report using istanbul
-![Code Coverage report](https://codecov.io/gh/addi90/add-eventlistener-with-options)
+[Code Coverage report](https://codecov.io/gh/addi90/add-eventlistener-with-options)
 
 # Story behind Passive event listeners 
 
