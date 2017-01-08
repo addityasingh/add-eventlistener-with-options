@@ -6,7 +6,6 @@
   "scripts": {
     "test": "mocha src/**/*.js --compilers js:babel-register",
     "test:watch": "npm t -- -w",
-    "check-coverage": "nyc check-coverage --statements 80 --functions 70",
     "report-coverage": "nyc report --reporter=lcov",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "cover": "nyc npm t",
