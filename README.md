@@ -7,6 +7,9 @@ A utility function to check if [EventTarget.addEventListener](https://developer.
 [![Build Status](https://travis-ci.org/addi90/add-eventlistener-with-options.svg?branch=master)](https://travis-ci.org/addi90/add-eventlistener-with-options)
 [![coverage](https://codecov.io/github/addi90/add-eventlistener-with-options/coverage.svg?precision=0)](https://codecov.io/github/addi90/build-notification-api/coverage)
 
+## npm status
+[![downloads](https://img.shields.io/npm/dt/add-eventlistener-with-options.svg)]()
+[![version](https://img.shields.io/npm/v/add-eventlistener-with-options.svg)]()
 
 ## Code coverage report using istanbul
 [Code Coverage report](https://codecov.io/gh/addi90/add-eventlistener-with-options)
