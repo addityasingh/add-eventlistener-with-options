@@ -5,6 +5,8 @@ A utility function to check if [EventTarget.addEventListener](https://developer.
 
 ## Build status
 [![Build Status](https://travis-ci.org/addi90/add-eventlistener-with-options.svg?branch=master)](https://travis-ci.org/addi90/add-eventlistener-with-options)
+[![coverage](https://codecov.io/github/addi90/add-eventlistener-with-options/coverage.svg?precision=0)](https://codecov.io/github/addi90/build-notification-api/coverage)
+
 
 ## Code coverage report using istanbul
 [Code Coverage report](https://codecov.io/gh/addi90/add-eventlistener-with-options)
