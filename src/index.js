@@ -19,7 +19,7 @@ export default function addEventListenerWithOptions (
     optionName = 'passive') {
     if (target.addEventListener !== undefined) {
         const listenerOptions = SupportMap[optionName] 
-                ? Object.assign({}, { [optionName]: true }, options) 
+                ? Object.assign({}, options, { [optionName]: true }) 
                 : options;
         target.addEventListener(name, listener, listenerOptions);
     }
