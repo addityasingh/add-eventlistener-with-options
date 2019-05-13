@@ -1,4 +1,6 @@
 .vscode
+.idea
+
 node_modules
 dist
 test_dist
