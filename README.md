@@ -8,8 +8,8 @@ A utility function to check if [EventTarget.addEventListener](https://developer.
 [![coverage](https://codecov.io/github/addityasingh/add-eventlistener-with-options/coverage.svg?precision=0)](https://codecov.io/github/addityasingh/add-eventlistener-with-options)
 
 ## npm status
-[![downloads](https://img.shields.io/npm/dt/add-eventlistener-with-options.svg)](https://npmjs.org/package/add-eventlistener-with-options)
-[![version](https://img.shields.io/npm/v/add-eventlistener-with-options.svg)](https://npmjs.org/package/add-eventlistener-with-options)
+[![downloads](https://img.shields.io/npm/dt/add-eventlistener-with-options.svg)](https://npmjs.org/package/add-eventlistener-with-options?cacheSeconds=3600)
+[![version](https://img.shields.io/npm/v/add-eventlistener-with-options.svg)](https://npmjs.org/package/add-eventlistener-with-options?cacheSeconds=3600)
 
 # Story behind Passive event listeners 
 
