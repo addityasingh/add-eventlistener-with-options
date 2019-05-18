@@ -17,7 +17,7 @@ action "build" {
 action "cover" {
   needs = "install"
   uses = "actions/npm@master"
-  args = "cover"
+  args = "run cover"
 }
 
 workflow "publish on release" {
