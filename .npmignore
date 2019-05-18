@@ -6,6 +6,11 @@ dist/
 assets/
 coverage/
 .nyc_output
+.github
+
+# Ignore files
+CODE_OF_CONDUCT.md
+contributing.json
 
 # Ignore build and environment specific files
 yarn.lock
