@@ -11,13 +11,25 @@ action "install" {
 action "build" {
   needs = "install"
   uses = "actions/npm@master"
-  args = "build"
+  args = "run build"
 }
 
 action "cover" {
   needs = "install"
   uses = "actions/npm@master"
   args = "run cover"
+}
+
+action "report-coverage" {
+  needs = "install"
+  uses = "actions/npm@master"
+  args = "run report-coverage"
+}
+
+action "upload-coverage" {
+  needs = "install"
+  uses = "actions/npm@master"
+  args = "run codecov"
 }
 
 workflow "publish on release" {
