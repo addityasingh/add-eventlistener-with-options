@@ -1,16 +1,23 @@
 workflow "build and test" {
   on = "push"
-  resolves = ["build", "test"]
+  resolves = ["build", "cover"]
 }
 
-action "test" {
+action "install" {
   uses = "actions/npm@master"
-  args = "test"
+  args = "install"
 }
 
 action "build" {
+  needs = "install"
   uses = "actions/npm@master"
   args = "build"
+}
+
+action "cover" {
+  needs = "install"
+  uses = "actions/npm@master"
+  args = "cover"
 }
 
 workflow "publish on release" {
