@@ -37,7 +37,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
     "chai": "3.5.0",
-    "codecov": "1.0.1",
+    "codecov": "3.6.5",
     "core-js": "2.4.1",
     "jsdom": "9.8.0",
     "mocha": "3.1.2",
